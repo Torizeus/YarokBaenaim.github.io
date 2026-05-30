@@ -1869,10 +1869,20 @@ html.readable-font * {
     
     .hero-nums {
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .hnum-val {
+        font-size: 32px;
+    }
+
+    .hnum-div {
+        display: none;
     }
     
     .hero h1 {
-        font-size: 42px;
+        font-size: 36px;
     }
     
     .sec-title {
