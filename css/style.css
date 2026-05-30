@@ -1853,6 +1853,18 @@ html.readable-font * {
 
     .hero-content {
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-lead {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hero-btns {
+        justify-content: center;
     }
     
     .hero-nums {
@@ -1879,8 +1891,7 @@ html.readable-font * {
     .hero-card-vis {
         max-width: 90%;
         margin: 0 auto;
-        display: flex;
-        justify-content: center;
+        position: relative;
     }
 
     .vis-float1 {
