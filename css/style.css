@@ -1802,3 +1802,16 @@ html.readable-font * {
 .skip-link:focus {
     top: 0;
 }
+
+.footer-logo {
+    width: 224px;
+    height: auto;
+}
+
+/* ── Mobile Logo ── */
+@media (max-width: 768px) {
+    .footer-logo {
+        width: 160px;
+        /* קטן יותר למובייל */
+    }
+}
