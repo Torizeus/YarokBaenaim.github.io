@@ -1619,10 +1619,6 @@ footer {
         gap: 48px;
     }
 
-    .hero-card-vis {
-        display: none;
-    }
-
     .steps-grid {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
@@ -1808,10 +1804,105 @@ html.readable-font * {
     height: auto;
 }
 
-/* ── Mobile Logo ── */
-@media (max-width: 768px) {
+/* ── Mobile Responsive Styles ── */
+@media (max-width: 900px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        text-align: center;
+        gap: 15px;
+        z-index: 999;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .hero {
+        display: block;
+        padding-top: 120px;
+        padding-bottom: 60px;
+        min-height: auto;
+    }
+
+    .hero-inner,
+    .who-grid,
+    .who-visual,
+    .theory-inner,
+    .teachers-inner,
+    .footer-inner {
+        grid-template-columns: 1fr !important;
+        gap: 40px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+    
+    .hero-nums {
+        justify-content: center;
+    }
+    
+    .hero h1 {
+        font-size: 42px;
+    }
+    
+    .sec-title {
+        font-size: 32px;
+    }
+    
+    .steps-grid,
+    .services-grid,
+    .licenses-grid,
+    .testi-grid,
+    .tperks {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+    
+    .hero-card-vis {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .vis-float1 {
+        position: absolute;
+        top: -10px;
+        left: 0;
+        transform: scale(0.85);
+        transform-origin: top left;
+        margin-top: 0;
+    }
+    
+    .vis-float2 {
+        position: absolute;
+        bottom: -10px;
+        right: 0;
+        transform: scale(0.85);
+        transform-origin: bottom right;
+        margin-top: 0;
+    }
+    
     .footer-logo {
         width: 160px;
-        /* קטן יותר למובייל */
+    }
+
+    .footer-col {
+        text-align: center;
+    }
+
+    .footer-contact {
+        align-items: center;
     }
 }

@@ -125,6 +125,23 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         if (target) { 
             e.preventDefault(); 
             target.scrollIntoView({ behavior: 'smooth' }); 
+            
+            // Close mobile menu if open
+            const navLinks = document.querySelector('.nav-links');
+            if(navLinks && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
         }
     });
 });
+
+// Mobile Nav Toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+}
+
