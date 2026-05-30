@@ -152,34 +152,39 @@ nav {
     overflow: hidden;
 }
 
-.hero-blob1 {
+.hero-shapes {
     position: absolute;
-    top: -120px;
-    left: -120px;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(76, 175, 80, .18) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: float 10s ease-in-out infinite;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
 }
 
-.hero-blob2 {
+.h-shape {
     position: absolute;
-    bottom: -100px;
-    right: -80px;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(27, 94, 32, .12) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: float 14s ease-in-out infinite reverse;
+    opacity: 0.6;
 }
 
-@keyframes float {
+.h-shape.s1 { width: 40px; top: 15%; left: 10%; animation: float-shape 12s ease-in-out infinite; }
+.h-shape.s2 { width: 60px; top: 20%; right: 15%; animation: float-shape 15s ease-in-out infinite reverse; }
+.h-shape.s3 { width: 45px; bottom: 25%; left: 18%; animation: float-shape 18s ease-in-out infinite 1s; }
+.h-shape.s4 { width: 50px; bottom: 20%; right: 20%; animation: float-shape 14s ease-in-out infinite 2s; }
+.h-shape.s5 { width: 30px; top: 40%; left: 45%; animation: float-shape 16s ease-in-out infinite 0.5s; }
+.h-shape.s6 { width: 70px; top: 60%; right: 5%; animation: float-shape 20s ease-in-out infinite 1.5s; }
+.h-shape.s7 { width: 35px; top: 10%; right: 40%; animation: float-shape 13s ease-in-out infinite 0.8s; }
+
+@keyframes float-shape {
     0%, 100% {
-        transform: translate(0, 0);
+        transform: translate(0, 0) rotate(0deg);
     }
-    50% {
-        transform: translate(20px, -20px);
+    33% {
+        transform: translate(30px, -40px) rotate(45deg);
+    }
+    66% {
+        transform: translate(-20px, 20px) rotate(-20deg);
     }
 }
 
@@ -529,8 +534,7 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
-    align-items: center;
-    margin-top: 60px;
+    align-items: start;
 }
 
 .who-text p {
@@ -590,7 +594,6 @@ section {
 }
 
 .who-card:first-child {
-    grid-column: 1/-1;
     background: linear-gradient(135deg, var(--g1), var(--g3));
     color: #fff;
 }
@@ -620,6 +623,7 @@ section {
     color: var(--sub);
     margin-top: 4px;
 }
+
 
 /* ── STEPS ── */
 .steps-section {
