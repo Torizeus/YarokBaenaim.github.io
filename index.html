@@ -496,24 +496,24 @@
                         <p>ללא התחייבות – בוא תרגיש מה זה ירוק בעיניים</p>
                     </div>
                     <div class="form-row">
-                        <div class="fg"><label>שם פרטי *</label><input type="text" placeholder="ישראל" /></div>
-                        <div class="fg"><label>שם משפחה *</label><input type="text" placeholder="ישראלי" /></div>
+                        <div class="fg"><label>שם פרטי *</label><input type="text" id="fname" placeholder="ישראל" /></div>
+                        <div class="fg"><label>שם משפחה *</label><input type="text" id="lname" placeholder="ישראלי" /></div>
                     </div>
                     <div class="form-row">
-                        <div class="fg"><label>טלפון *</label><input type="tel" placeholder="050-0000000" /></div>
-                        <div class="fg"><label>עיר</label><input type="text" placeholder="ירושלים, תל אביב..." /></div>
+                        <div class="fg"><label>טלפון *</label><input type="tel" id="phone" placeholder="050-0000000" /></div>
+                        <div class="fg"><label>עיר</label><input type="text" id="city" placeholder="ירושלים, תל אביב..." /></div>
                     </div>
                     <div class="fg">
-                        <label>מצב הנהיגה שלך</label>
-                        <select>
-                            <option>מתחיל – אין לי ניסיון בכלל</option>
-                            <option>יש לי קצת ניסיון</option>
-                            <option>עברתי מבית ספר אחר</option>
-                            <option>נכשלתי בטסט ורוצה לשפר</option>
-                            <option>מורה נהיגה – מחפש בית ספר</option>
+                        <label>סיבת הפנייה</label>
+                        <select id="status">
+                            <option>רוצה להתחיל ללמוד נהיגה</option>
+                            <option>יש לי קצת ניסיון בנהיגה</option>
+                            <option>עברתי מבית ספר אחר לנהיגה</option>
+                            <option>נכשלתי בטסט ורוצה לשפר את הנהיגה</option>
+                            <option>אני מורה נהיגה ומחפש בית ספר לנהיגה</option>
                         </select>
                     </div>
-                    <button class="form-submit">🟢 שליחה</button>
+                    <button id="submit-btn" class="form-submit">🟢 שליחה</button>
                     <div class="form-trust">
                         <span>✅ מורה יצור איתך קשר בהקדם </span>
                     </div>

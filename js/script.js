@@ -1,9 +1,9 @@
 // Scroll reveal animations
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { 
+    entries.forEach(e => {
         if (e.isIntersecting) {
-            e.target.classList.add('in'); 
+            e.target.classList.add('in');
         }
     });
 }, { threshold: 0.12 });
@@ -34,11 +34,11 @@ if (a11yToggle && a11yPanel) {
     });
 
     // Handle space and enter with preventDefault to prevent spacebar page-scroll
-    a11yToggle.addEventListener('keydown', e => { 
-        if (e.key === 'Enter' || e.key === ' ') { 
-            e.preventDefault(); 
-            a11yToggle.click(); 
-        } 
+    a11yToggle.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            a11yToggle.click();
+        }
     });
 
     // Close on outside click
@@ -62,19 +62,19 @@ function toggleA11y(cls, event) {
     if (event) {
         event.stopPropagation();
     }
-    
+
     // Toggle class on HTML element
     document.documentElement.classList.toggle(cls);
-    
+
     // Find associated button and update active styles / aria attribute
     const btn = document.querySelector(`[onclick^="toggleA11y('${cls}')"]`);
     const isActive = document.documentElement.classList.contains(cls);
-    
+
     if (btn) {
         btn.classList.toggle('active', isActive);
         btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     }
-    
+
     // Save to localStorage
     if (isActive) {
         localStorage.setItem('a11y-' + cls, 'true');
@@ -86,13 +86,13 @@ function toggleA11y(cls, event) {
 // Reset all accessibility choices
 function resetA11y() {
     const classes = ['font-large', 'high-contrast', 'grayscale', 'links-highlight', 'no-animations', 'readable-font'];
-    
+
     classes.forEach(cls => {
         document.documentElement.classList.remove(cls);
         const btn = document.querySelector(`[onclick^="toggleA11y('${cls}')"]`);
-        if (btn) { 
-            btn.classList.remove('active'); 
-            btn.setAttribute('aria-pressed', 'false'); 
+        if (btn) {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-pressed', 'false');
         }
         localStorage.removeItem('a11y-' + cls);
     });
@@ -105,7 +105,7 @@ window.resetA11y = resetA11y;
 // Load saved accessibility configurations
 document.addEventListener('DOMContentLoaded', () => {
     const classes = ['font-large', 'high-contrast', 'grayscale', 'links-highlight', 'no-animations', 'readable-font'];
-    
+
     classes.forEach(cls => {
         if (localStorage.getItem('a11y-' + cls) === 'true') {
             document.documentElement.classList.add(cls);
@@ -122,13 +122,13 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
         const target = document.querySelector(a.getAttribute('href'));
-        if (target) { 
-            e.preventDefault(); 
-            target.scrollIntoView({ behavior: 'smooth' }); 
-            
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+
             // Close mobile menu if open
             const navLinks = document.querySelector('.nav-links');
-            if(navLinks && navLinks.classList.contains('active')) {
+            if (navLinks && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
             }
         }
@@ -145,3 +145,37 @@ if (hamburger && navLinks) {
     });
 }
 
+// Form Submission to WhatsApp
+const submitBtn = document.getElementById('submit-btn');
+if (submitBtn) {
+    submitBtn.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent default button behavior
+
+        const fname = document.getElementById('fname').value.trim();
+        const lname = document.getElementById('lname').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const city = document.getElementById('city').value.trim();
+        const status = document.getElementById('status').value;
+
+        // Basic validation
+        if (!fname || !lname || !phone) {
+            alert('אנא מלא את כל שדות החובה (*)');
+            return;
+        }
+
+        // Construct the message
+        let message = `היי אני ${fname} ${lname} רוצה להתחיל בבית ספר ירוק בעניים\n`;
+        if (city) {
+            message += `מעיר: ${city}\n`;
+        }
+        message += `מצב נהיגה: ${status}\n`;
+        message += `טלפון לחזרה: ${phone}`;
+
+        // Target phone number (Israel format)
+        const targetPhone = '972548882397';
+
+        // Open WhatsApp in a new tab/window
+        const whatsappUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    });
+}
