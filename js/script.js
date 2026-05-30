@@ -63,12 +63,12 @@ function toggleA11y(cls, event) {
         event.stopPropagation();
     }
     
-    // Toggle class on body
-    document.body.classList.toggle(cls);
+    // Toggle class on HTML element
+    document.documentElement.classList.toggle(cls);
     
     // Find associated button and update active styles / aria attribute
     const btn = document.querySelector(`[onclick^="toggleA11y('${cls}')"]`);
-    const isActive = document.body.classList.contains(cls);
+    const isActive = document.documentElement.classList.contains(cls);
     
     if (btn) {
         btn.classList.toggle('active', isActive);
@@ -88,7 +88,7 @@ function resetA11y() {
     const classes = ['font-large', 'high-contrast', 'grayscale', 'links-highlight', 'no-animations', 'readable-font'];
     
     classes.forEach(cls => {
-        document.body.classList.remove(cls);
+        document.documentElement.classList.remove(cls);
         const btn = document.querySelector(`[onclick^="toggleA11y('${cls}')"]`);
         if (btn) { 
             btn.classList.remove('active'); 
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     classes.forEach(cls => {
         if (localStorage.getItem('a11y-' + cls) === 'true') {
-            document.body.classList.add(cls);
+            document.documentElement.classList.add(cls);
             const btn = document.querySelector(`[onclick^="toggleA11y('${cls}')"]`);
             if (btn) {
                 btn.classList.add('active');

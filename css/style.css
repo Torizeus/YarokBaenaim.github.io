@@ -23,6 +23,8 @@
 
 html {
     scroll-behavior: smooth;
+    /* Combine filters using variables so they don't override each other. Applying to html preserves position: fixed descendants. */
+    filter: contrast(var(--a11y-contrast)) grayscale(var(--a11y-grayscale)) !important;
 }
 
 body {
@@ -31,8 +33,6 @@ body {
     background: #fff;
     direction: rtl;
     overflow-x: hidden;
-    /* Combine filters using variables so they don't override each other */
-    filter: contrast(var(--a11y-contrast)) grayscale(var(--a11y-grayscale)) !important;
 }
 
 /* ── NAV ── */
@@ -1717,7 +1717,7 @@ footer {
 
 .a11y-btn.active {
     background: #1565c0;
-    color: #white;
+    color: #fff;
     border-color: #1565c0;
 }
 
@@ -1726,31 +1726,39 @@ footer {
 }
 
 /* Accessibility states */
-body.font-large {
+html.high-contrast {
+    --a11y-contrast: 160%;
+}
+
+html.grayscale {
+    --a11y-grayscale: 100%;
+}
+
+html.font-large {
     font-size: 120% !important;
 }
 
-body.font-large p,
-body.font-large li,
-body.font-large span,
-body.font-large label,
-body.font-large input,
-body.font-large select {
+html.font-large p,
+html.font-large li,
+html.font-large span,
+html.font-large label,
+html.font-large input,
+html.font-large select {
     font-size: 1.2em !important;
 }
 
 /* Exclude the widget, the toggle, and the WhatsApp button from destructive override high-contrast styles */
-body.high-contrast *:not(#a11y-toggle):not(#a11y-toggle *):not(#a11y-panel):not(#a11y-panel *):not(.wa-float):not(.wa-float *) {
+html.high-contrast *:not(#a11y-toggle):not(#a11y-toggle *):not(#a11y-panel):not(#a11y-panel *):not(.wa-float):not(.wa-float *) {
     color: #fff !important;
     background: #000 !important;
     border-color: #fff !important;
 }
 
-body.high-contrast a:not(#a11y-toggle):not(#a11y-toggle *):not(#a11y-panel):not(#a11y-panel *):not(.wa-float):not(.wa-float *) {
+html.high-contrast a:not(#a11y-toggle):not(#a11y-toggle *):not(#a11y-panel):not(#a11y-panel *):not(.wa-float):not(.wa-float *) {
     color: #ff0 !important;
 }
 
-body.links-highlight a {
+html.links-highlight a {
     outline: 3px solid #ff6600 !important;
     text-decoration: underline !important;
     background: #fff3e0 !important;
@@ -1758,15 +1766,15 @@ body.links-highlight a {
     border-radius: 3px;
 }
 
-body.no-animations *,
-body.no-animations *::before,
-body.no-animations *::after {
+html.no-animations *,
+html.no-animations *::before,
+html.no-animations *::after {
     animation: none !important;
     transition: none !important;
 }
 
-body.readable-font,
-body.readable-font * {
+html.readable-font,
+html.readable-font * {
     font-family: Arial, sans-serif !important;
     letter-spacing: 0.05em !important;
     line-height: 1.9 !important;
