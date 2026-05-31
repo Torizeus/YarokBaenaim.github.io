@@ -1946,36 +1946,27 @@ html.readable-font * {
     .footer-contact {
         align-items: center;
     }
+
+    /* Mobile Accessibility Widget scale & positioning overrides */
+    #enable-toolbar-trigger {
+        bottom: 20px !important;
+        right: 20px !important;
+        transform: translateY(-100%) scale(0.75) !important;
+    }
+    
+    #enable-toolbar-trigger:hover {
+        transform: translateY(-100%) scale(0.8) !important;
+    }
 }
 
 /* ── CUSTOM ACCESSIBILITY WIDGET OVERRIDES ── */
 #enable-toolbar-trigger {
-    position: fixed !important;
     bottom: 28px !important;
     right: 28px !important;
-    left: auto !important;
-    top: auto !important;
-    width: 48px !important;
-    height: 48px !important;
-    border-radius: 50% !important;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    transform: none !important;
-    transition: transform 0.25s ease, opacity 0.25s ease !important;
-    z-index: 2247483647 !important;
-    background-color: transparent !important;
+    transform: translateY(-100%) scale(0.95) !important;
+    transition: transform 0.25s ease, bottom 0.25s ease, right 0.25s ease !important;
 }
 
 #enable-toolbar-trigger:hover {
-    transform: scale(1.08) !important;
-}
-
-#enable-toolbar-trigger svg,
-#enable-toolbar-trigger-svg {
-    width: 48px !important;
-    height: 48px !important;
-    transform: none !important;
-    margin: 0 !important;
+    transform: translateY(-100%) scale(1.03) !important;
 }
