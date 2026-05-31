@@ -61,6 +61,17 @@ nav {
     text-decoration: none;
 }
 
+.nav-brand img {
+    height: 3.5rem;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.nav-brand img:hover {
+    transform: scale(1.05);
+}
+
 .nav-eye {
     display: flex;
     align-items: center;
